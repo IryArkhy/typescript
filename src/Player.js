@@ -1,12 +1,7 @@
+"use strict";
 /// <reference path="./Person.ts" />
-
-class Player implements Person {
-    name: string;
-    age?: number;
-    highScore: number;
-
+class Player {
     formatName() {
         return this.name.toLocaleUpperCase();
     }
 }
-
