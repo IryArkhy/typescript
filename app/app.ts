@@ -1,43 +1,25 @@
-/// <reference path="./Player.ts" />
-// import Player from "./Player";
-let welcomeMsg: string = "Welcome to MultiMath! Starting new game...";
+/// <reference path="Player.ts" />
+/// <reference path="Game.ts" />
+/// <reference path="utility.ts" />
 
-function startGame() {
-    const player: string | undefined = getInputValue('playername');
-    logPlayer(player);
-    // const messageElement = document.getElementById("messages");
-    // messageElement!.innerText = welcomeMsg;
-    postScores(100, player);
-    postScores(-5, player);
+
+let newGame: Game;
+//add click handler to the start game button
+const startHandler = () => {
+    const player: Player = new Player(); // value provided by the user
+    player.name = Utility.getInputValue('playername');// call func directly on the utility class without firstly creating new instance of the class
+
+    //retrive the other data from the other input
+    const problemCount: number = Number(Utility.getInputValue('problemCount'));
+    const factor: number = Number(Utility.getInputValue('factor'));
+
+    //create new game 
+    newGame = new Game(player, problemCount, factor);
+    newGame.displayGame();
 }
+document.getElementById('startGame')!.addEventListener("click", startHandler);
 
-function logPlayer(name: string = "MultiMath Player"): void {
-    console.log(`New game starting for player: ${name}`);
-}
-
-function getInputValue(elementID: string): string | undefined {
-    const inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById(elementID);
-    if (inputElement.value === '') return undefined;
-    return inputElement.value;
-}
-
-// const logMessage = (message: string): void => console.log(message); //TS can infer the void type
-const logMessage = (message: string) => console.log(message);
-const logError = (err: string) => console.error(err);
-
-function postScores(score: number, playerName: string = "MultiMath Player"): void {
-    let logger: (value: string) => void;
-    if (score < 0) logger = logError;
-    logger = logMessage;
-    const scoreElement: HTMLElement = <HTMLElement>document.getElementById("postedScores");
-    scoreElement!.innerText = `${score} - ${playerName}`;
-
-    logger(`Score: ${score}`);
-}
-
-document.getElementById("startGame")!.addEventListener("click", startGame);
-
-const firstPlayer: Player = new Player();
-firstPlayer.name = "Cody";
-console.log(firstPlayer.formatName())
-
+//add click handler to calculate score button
+document.getElementById('calculate')!.addEventListener("click", () => {
+    newGame.calculateScore();
+})
