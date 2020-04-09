@@ -1,18 +1,28 @@
 {
-  "name": "typescript",
+  "name": "typescript-basics",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple math game built with TypeScript.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server"
   },
+  "author": "Iryna Arkhypchenko",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IryArkhy/typescript.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "typescript",
+    "pluralsight"
+  ],
   "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "4.38.0",
+    "webpack-cli": "3.3.6",
+    "webpack-dev-server": "3.7.2"
+  },
   "bugs": {
     "url": "https://github.com/IryArkhy/typescript/issues"
   },
