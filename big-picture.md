@@ -1,0 +1,1 @@
+TypeScript compiles to JavaScript not to machine code.
