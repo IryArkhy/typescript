@@ -1,10 +1,10 @@
 {
-  "name": "typescript",
+  "name": "typescript-basics",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/IryArkhy/typescript/issues"
   },
-  "homepage": "https://github.com/IryArkhy/typescript#readme"
+  "homepage": "https://github.com/IryArkhy/typescript#readme",
+  "devDependencies": {
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "4.38.0",
+    "webpack-cli": "3.3.6",
+    "webpack-dev-server": "3.7.2"
+  }
 }
