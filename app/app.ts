@@ -1,17 +1,16 @@
-/// <reference path="Player.ts" />
-/// <reference path="Game.ts" />
-/// <reference path="utility.ts" />
+import Player from './Player'
+import { Game } from './Game'
+import * as Helpers from './utility'
+
 
 
 let newGame: Game;
 //add click handler to the start game button
 const startHandler = () => {
     const player: Player = new Player(); // value provided by the user
-    player.name = Utility.getInputValue('playername');// call func directly on the utility class without firstly creating new instance of the class
-
-    //retrive the other data from the other input
-    const problemCount: number = Number(Utility.getInputValue('problemCount'));
-    const factor: number = Number(Utility.getInputValue('factor'));
+    player.name = Helpers.getValue('playername');
+    const problemCount: number = Number(Helpers.getValue('problemCount'));
+    const factor: number = Number(Helpers.getValue('factor'));
 
     //create new game 
     newGame = new Game(player, problemCount, factor);
